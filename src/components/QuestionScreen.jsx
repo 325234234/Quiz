@@ -33,11 +33,12 @@ export default function QuestionScreen({ formData, resetGame }) {
                 const indexCorrectAnswer = Math.floor(Math.random()*(question.incorrect_answers.length + 1))
                 // put the correct answer into that spot
                 question.incorrect_answers.splice(indexCorrectAnswer, 0, question.correct_answer)
-                // return a new object that also holds a field for the user selected answer as well as an array holding all answers
+                // return a new object that also holds a field for the quiz being over,
+                // the user selected answer, whether it's wrong, and an array holding all answers
                 return {
                     ...question,
-                    selected_answer: "",
                     isQuizOver: false,
+                    selected_answer: "",
                     wrongly_selected_answer: "",
                     randomized_answers: question.incorrect_answers
                 }
@@ -50,6 +51,7 @@ export default function QuestionScreen({ formData, resetGame }) {
 
     // check if player scored a perfect game by checking that no answers were wrongly selected and all questions were answered
     useEffect(() => { 
+        // wrongly_selected is "" if the user selection is correct and a truthy "string" if the user selects falsely
         if(isFinished && questions.every(question => !question.wrongly_selected_answer) && questions.every(question => question.selected_answer)) {
             setWon(true)                               
         }  

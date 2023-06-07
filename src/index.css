@@ -74,7 +74,6 @@ button:active {
   font-family: 'Karla';
   font-weight: 700;
   font-size: 4rem;
-
   color: #293264;
 }
 
@@ -190,13 +189,10 @@ input,
   font-size: 1rem;
 }
 
-.question--hoverable {
-  cursor: pointer;
-}
-
 .question--hoverable:hover {  
   color: #F5F7FB;
-  background: #293264
+  background: #293264;
+  cursor: pointer;
 }
 
 .question--selectedAnswer {
