@@ -207,3 +207,15 @@ input,
 .question--wrongAnswer {
   box-shadow: 0px 0px 4px 4px #F8BCBC;
 }
+
+@media (max-width: 620px) {
+  .question,
+  .question--answer
+   {
+    width: 90%;
+  }
+
+  .question--answers {
+    flex-direction: column;
+  }
+}

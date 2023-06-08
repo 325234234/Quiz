@@ -14,6 +14,11 @@ export default function QuestionScreen({ formData, resetGame }) {
     const [isFinished, setFinished] = useState(false)
     const [hasWon, setWon] = useState(false)
 
+    // Have the confetti cover the whole screen
+    const body = document.body
+    const html = document.documentElement
+    const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+
     // Fetch questions for selected category/difficulty and set state while showing loading screen
     useEffect(() => {
         async function fetchQuestions() {
@@ -98,7 +103,7 @@ export default function QuestionScreen({ formData, resetGame }) {
 
     return (
         <div className="questionScreen">
-            {hasWon && <Confetti />}
+            {hasWon && <Confetti height={height}/>}
             <img className="blob right" src={blobRight}/>
             <img className="blob left" src={blobLeft}/>
             {isLoading ? <BeatLoader color="#4D5B9E" /> : 
